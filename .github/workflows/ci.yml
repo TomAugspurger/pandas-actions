@@ -11,13 +11,16 @@ jobs:
     name: Web and docs
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
 
     - name: Setup env
       run: |
-        pip install sphinx
-        pip install -e .
+        python -m pip install sphinx setuptools
+        python -m pip install -e .
 
     - name: Build documentation
       run: |
