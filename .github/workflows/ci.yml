@@ -21,6 +21,6 @@ jobs:
 
     - name: Build documentation
       run: |
-        cd doc
+        cd docs
         make html
 
