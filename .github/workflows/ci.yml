@@ -19,4 +19,8 @@ jobs:
         pip install sphinx
         pip install -e .
 
+    - name: Build documentation
+      run: |
+        cd doc
+        make html
 
