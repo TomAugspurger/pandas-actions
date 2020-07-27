@@ -36,5 +36,7 @@ jobs:
       if: github.event_name == 'push'
 
     - name: Upload dev docs
-      run: rsync -az --delete docs/build/html/ docs@${{ secrets.server_ip }}:/usr/share/nginx/pandas/pandas-docs/tst
+      run: |
+        echo ${{ github.event.release.tag_name }}
+        rsync -az --delete docs/build/html/ docs@${{ secrets.server_ip }}:/usr/share/nginx/pandas/pandas-docs/tst
       if: github.event_name == 'push'
